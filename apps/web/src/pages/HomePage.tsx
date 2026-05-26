@@ -1,4 +1,5 @@
 import { BannerLoop } from '@/features/banner';
+import { CasesSection } from '@/features/cases';
 import { HeroSection } from '@/features/hero';
 import { ServicesSection } from '@/features/services';
 import { OurSolutions } from '@/features/solutions';
@@ -12,6 +13,7 @@ export function HomePage() {
       <OurSolutions />
       <WhyChooseUs />
       <BannerLoop />
+      <CasesSection />
     </>
   );
 }
