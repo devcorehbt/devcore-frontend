@@ -19,10 +19,12 @@
     "test": "turbo run test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "lighthouse": "bun run build && lhci autorun",
     "prepare": "lefthook install"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
+    "@lhci/cli": "^0.14.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/types": "^19.5.0",
     "@devcore/eslint-config": "workspace:*",
