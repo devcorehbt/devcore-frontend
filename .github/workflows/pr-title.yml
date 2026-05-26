@@ -1,0 +1,34 @@
+name: PR Title
+
+# Garante que o título do PR siga Conventional Commits — ele vira a mensagem
+# final do squash merge.
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title (Conventional Commits)
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            chore
+            ci
+            docs
+            style
+            refactor
+            perf
+            test
+            build
+            revert
+          requireScope: false
