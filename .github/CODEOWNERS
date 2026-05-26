@@ -1,0 +1,16 @@
+# Code owners — solicitados automaticamente para review em PRs.
+# Docs: https://docs.github.com/articles/about-code-owners
+
+# Owner padrão de tudo
+*                       @mkamaroski1
+
+# Tooling / CI
+/.github/               @mkamaroski1
+/turbo.json             @mkamaroski1
+/package.json           @mkamaroski1
+
+# Pacotes compartilhados
+/packages/              @mkamaroski1
+
+# Aplicações
+/apps/                  @mkamaroski1
