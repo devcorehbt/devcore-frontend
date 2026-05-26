@@ -15,3 +15,10 @@ commit-msg:
   commands:
     commitlint:
       run: bunx commitlint --edit {1}
+
+# Gate antes do push: roda o mesmo conjunto de checagens do CI.
+# Evita reprovações remotas (os "X" no CI). Pule com `git push --no-verify` só em emergência.
+pre-push:
+  commands:
+    validate:
+      run: make validate
