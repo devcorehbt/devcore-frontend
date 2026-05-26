@@ -1,0 +1,11 @@
+{
+  "extends": "@devcore/tsconfig/react-vite.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["vite/client", "node"]
+  },
+  "include": ["src", "vite.config.ts", "vitest.setup.ts"]
+}
