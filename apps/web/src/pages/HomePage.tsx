@@ -1,5 +1,6 @@
 import { BannerLoop } from '@/features/banner';
 import { CasesSection } from '@/features/cases';
+import { FaqSection } from '@/features/faq';
 import { HeroSection } from '@/features/hero';
 import { ProblemSolutionSection } from '@/features/problem-solution';
 import { DevelopmentProcess } from '@/features/process';
@@ -18,6 +19,7 @@ export function HomePage() {
       <CasesSection />
       <ProblemSolutionSection />
       <DevelopmentProcess />
+      <FaqSection />
     </>
   );
 }
