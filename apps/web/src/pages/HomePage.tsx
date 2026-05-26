@@ -2,6 +2,7 @@ import { BannerLoop } from '@/features/banner';
 import { CasesSection } from '@/features/cases';
 import { HeroSection } from '@/features/hero';
 import { ProblemSolutionSection } from '@/features/problem-solution';
+import { DevelopmentProcess } from '@/features/process';
 import { ServicesSection } from '@/features/services';
 import { OurSolutions } from '@/features/solutions';
 import { WhyChooseUs } from '@/features/why-choose-us';
@@ -16,6 +17,7 @@ export function HomePage() {
       <BannerLoop />
       <CasesSection />
       <ProblemSolutionSection />
+      <DevelopmentProcess />
     </>
   );
 }
