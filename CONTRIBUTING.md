@@ -41,9 +41,25 @@ As tarefas são orquestradas pelo [Turborepo](https://turbo.build):
    - `ci/<descrição>` — pipeline/CI
    - `docs/<descrição>` — documentação
 2. Faça commits seguindo **[Conventional Commits](https://www.conventionalcommits.org)**.
-3. Abra o PR. O CI precisa passar (lint, typecheck, build, test).
-4. O merge é feito por **squash** — o **título do PR** vira a mensagem final, então ele
+3. **Antes de dar push**, rode o gate local (ver abaixo) para não reprovar no CI.
+4. Abra o PR. O CI precisa passar (format, lint, typecheck, build, test, lighthouse).
+5. O merge é feito por **squash** — o **título do PR** vira a mensagem final, então ele
    também deve seguir Conventional Commits (ex.: `feat(web): add hero section`).
+
+## Antes de subir (evite os "X" no CI)
+
+Rode o mesmo conjunto de checagens que o CI executa:
+
+```bash
+make validate   # format + lint + typecheck + test + build
+make fix        # corrige formatação e lint automaticamente, se preciso
+```
+
+Esse gate roda **automaticamente no `git push`** via hook `pre-push` (Lefthook). Em
+emergência dá para pular com `git push --no-verify`, mas evite.
+
+Se estiver usando o Claude Code, a skill **`/pre-push-review`** roda o `make validate` e
+ainda faz um code review do diff contra os padrões do projeto antes do push.
 
 ## Conventional Commits
 
