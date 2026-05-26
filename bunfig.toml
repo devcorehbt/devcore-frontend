@@ -1,0 +1,6 @@
+# Bun configuration — https://bun.sh/docs/runtime/bunfig
+[install]
+# Instala apenas dependências de produção quando NODE_ENV=production (CI/build).
+# Em dev, devDependencies são instaladas normalmente.
+peer = true
+exact = false
