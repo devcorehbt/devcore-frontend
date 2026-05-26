@@ -1,3 +1,72 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary;
+  }
+
+  h1 {
+    @apply text-4xl font-normal leading-tight md:text-3xl;
+  }
+
+  h2 {
+    @apply text-xl font-semibold leading-snug md:text-5xl lg:text-2xl lg:leading-tight;
+  }
+
+  h3 {
+    @apply text-3xl font-semibold;
+  }
+
+  p {
+    @apply text-base;
+  }
+
+  button {
+    @apply font-semibold;
+  }
+
+  a {
+    @apply transition;
+  }
+}
+
+@layer utilities {
+  .marquee-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: fit-content;
+    gap: 4rem;
+    white-space: nowrap;
+    animation: marquee-scroll linear infinite;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
