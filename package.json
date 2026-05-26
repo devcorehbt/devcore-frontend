@@ -23,7 +23,7 @@
     "prepare": "lefthook install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
+    "@commitlint/cli": "^21.0.1",
     "@lhci/cli": "^0.14.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/types": "^19.5.0",
