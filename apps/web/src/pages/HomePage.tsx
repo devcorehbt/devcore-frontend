@@ -1,6 +1,7 @@
 import { HeroSection } from '@/features/hero';
 import { ServicesSection } from '@/features/services';
 import { OurSolutions } from '@/features/solutions';
+import { WhyChooseUs } from '@/features/why-choose-us';
 
 export function HomePage() {
   return (
@@ -8,6 +9,7 @@ export function HomePage() {
       <HeroSection />
       <ServicesSection />
       <OurSolutions />
+      <WhyChooseUs />
     </>
   );
 }
