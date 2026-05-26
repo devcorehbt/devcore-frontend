@@ -36,3 +36,9 @@ yarn-error.log*
 
 # Vite
 .vite/
+
+# Lighthouse CI
+.lighthouseci/
+# Perfis temporários do Chrome criados por execuções locais (WSL/Windows shim)
+C:*
+*AppData*
