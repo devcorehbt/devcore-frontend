@@ -22,13 +22,13 @@ packages/     código compartilhado (ui, configs)
 
 As tarefas são orquestradas pelo [Turborepo](https://turbo.build):
 
-| Comando             | Ação                                  |
-| ------------------- | ------------------------------------- |
-| `bun run build`     | build de todos os pacotes             |
-| `bun run lint`      | ESLint em todo o workspace            |
-| `bun run typecheck` | checagem de tipos TypeScript          |
-| `bun run test`      | testes (Vitest)                       |
-| `bun run dev`       | modo desenvolvimento                  |
+| Comando             | Ação                         |
+| ------------------- | ---------------------------- |
+| `bun run build`     | build de todos os pacotes    |
+| `bun run lint`      | ESLint em todo o workspace   |
+| `bun run typecheck` | checagem de tipos TypeScript |
+| `bun run test`      | testes (Vitest)              |
+| `bun run dev`       | modo desenvolvimento         |
 
 ## Fluxo de branches
 

@@ -1,0 +1,17 @@
+# Lefthook — git hooks gerenciados (https://lefthook.dev)
+# Instalado via `bun install` (script prepare).
+
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: '*.{js,jsx,ts,tsx,json,md,css,yml,yaml}'
+      run: bunx prettier --check {staged_files}
+    lint:
+      glob: '*.{js,jsx,ts,tsx}'
+      run: bunx eslint --no-warn-ignored {staged_files}
+
+commit-msg:
+  commands:
+    commitlint:
+      run: bunx commitlint --edit {1}
