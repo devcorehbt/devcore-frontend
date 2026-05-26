@@ -1,0 +1,7 @@
+{
+  "extends": "@devcore/tsconfig/react-vite.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": ["src"]
+}
