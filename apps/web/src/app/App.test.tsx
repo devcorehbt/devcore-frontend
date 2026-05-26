@@ -3,9 +3,9 @@ import { describe, expect, it } from 'vitest';
 import { App } from './App';
 
 describe('App', () => {
-  it('renderiza a home com o nome da marca', () => {
+  it('renderiza a home com o título da hero', () => {
     render(<App />);
 
-    expect(screen.getByRole('heading', { level: 1, name: /devcore/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Soluções Inovadoras/i);
   });
 });
