@@ -9,14 +9,17 @@ interface ServiceCardProps {
 const PARTICLE_COUNT = 25;
 
 export function ServiceCard({ tag, description }: ServiceCardProps) {
-  const particles = useMemo<CSSProperties[]>(
+  const particles = useMemo(
     () =>
-      Array.from({ length: PARTICLE_COUNT }, () => ({
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        animationDuration: `${20 + Math.random() * 30}s`,
-        animationDelay: `${Math.random() * 15}s`,
-        opacity: Math.random() * 0.6 + 0.2,
+      Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
+        key: `p-${i}`,
+        style: {
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          animationDuration: `${20 + Math.random() * 30}s`,
+          animationDelay: `${Math.random() * 15}s`,
+          opacity: Math.random() * 0.6 + 0.2,
+        } as CSSProperties,
       })),
     [],
   );
@@ -24,11 +27,11 @@ export function ServiceCard({ tag, description }: ServiceCardProps) {
   return (
     <article className="relative flex h-[290px] w-[300px] flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-gradient-to-t from-gradient-from/20 via-gradient-via/50 to-gradient-to/10 p-5 transition-all hover:shadow-lg">
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
-        {particles.map((style, index) => (
+        {particles.map((particle) => (
           <span
-            key={index}
+            key={particle.key}
             className="absolute h-0.5 w-0.5 animate-drift rounded-full bg-white/30"
-            style={style}
+            style={particle.style}
           />
         ))}
       </div>

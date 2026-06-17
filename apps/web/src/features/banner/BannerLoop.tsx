@@ -16,7 +16,9 @@ export function BannerLoop({
   className,
 }: BannerLoopProps) {
   // Triplica a lista para um loop visualmente contínuo.
-  const items = [...words, ...words, ...words];
+  const items = [0, 1, 2].flatMap((copy) =>
+    words.map((word, pos) => ({ word, key: `${copy}-${pos}` })),
+  );
 
   return (
     <div className="marquee-container bg-bg-primary py-6 pb-0 lg:pb-24 lg:pt-28" aria-hidden>
@@ -27,9 +29,9 @@ export function BannerLoop({
         )}
         style={{ animationDuration: `${durationSeconds}s` }}
       >
-        {items.map((word, index) => (
-          <span key={`${word}-${index}`} className="flex items-center gap-4">
-            <span>{word}</span>
+        {items.map((item) => (
+          <span key={item.key} className="flex items-center gap-4">
+            <span>{item.word}</span>
             <img src={star} alt="" className="h-5 w-5" />
           </span>
         ))}

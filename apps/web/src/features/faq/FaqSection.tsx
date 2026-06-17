@@ -1,37 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { cn } from '@devcore/ui';
 import { FaqCard } from './FaqCard';
 import { faqItems } from './faq.data';
+import { useHorizontalScroll } from './useHorizontalScroll';
 
 const CARD_GAP = 16;
 
 export function FaqSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    const updateScrollState = () => {
-      setCanScrollLeft(el.scrollLeft > 0);
-      setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
-    };
-
-    updateScrollState();
-    el.addEventListener('scroll', updateScrollState, { passive: true });
-    return () => el.removeEventListener('scroll', updateScrollState);
-  }, []);
-
-  const scrollByCard = (direction: 'left' | 'right') => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>('.faq-card');
-    const amount = (card?.offsetWidth ?? el.clientWidth) + CARD_GAP;
-    el.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
-  };
+  const { scrollRef, canScrollLeft, canScrollRight, scrollByCard } = useHorizontalScroll(
+    '.faq-card',
+    CARD_GAP,
+  );
 
   const navButtonClass = (enabled: boolean) =>
     cn(

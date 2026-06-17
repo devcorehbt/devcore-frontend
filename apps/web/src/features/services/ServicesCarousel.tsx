@@ -30,13 +30,15 @@ export function ServicesCarousel() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {[...servicesData, ...servicesData].map((item, index) => (
-          <ServiceCard
-            key={`${item.title}-${index}`}
-            tag={item.tag}
-            description={item.description}
-          />
-        ))}
+        {[0, 1].flatMap((copy) =>
+          servicesData.map((item) => (
+            <ServiceCard
+              key={`${item.title}-${copy}`}
+              tag={item.tag}
+              description={item.description}
+            />
+          )),
+        )}
       </motion.div>
     </div>
   );
